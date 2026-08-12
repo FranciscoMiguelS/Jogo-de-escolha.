@@ -1,0 +1,107 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #0f172a, #1e1b4b);
+  color: #f8fafc;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.game-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 30px;
+  max-width: 550px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.step-indicator {
+  font-size: 0.85rem;
+  color: #818cf8;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+h2 {
+  margin: 15px 0 25px 0;
+  font-size: 1.35rem;
+  line-height: 1.4;
+}
+
+.options-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.btn-option {
+  background: #334155;
+  color: #f8fafc;
+  border: 1px solid #475569;
+  padding: 14px 18px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-option:hover {
+  background: #4f46e5;
+  border-color: #6366f1;
+  transform: translateY(-2px);
+}
+
+.hidden {
+  display: none;
+}
+
+.badge {
+  background: #4f46e5;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+#result-screen {
+  text-align: center;
+}
+
+#result-title {
+  color: #a5b4fc;
+  font-size: 1.8rem;
+  margin-top: 15px;
+}
+
+#result-desc {
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+.btn-restart {
+  background: #10b981;
+  color: #022c22;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-restart:hover {
+  background: #34d399;
+}
