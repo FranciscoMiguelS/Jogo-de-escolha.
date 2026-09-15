@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700&display=swap');
+
+:root {
+    --neon-green: #00FF66;
+    --neon-cyan: #00F0FF;
+    --neon-gold: #FFD700;
+    --neon-red: #FF003C;
+    --neon-orange: #FF6B00;
+    --bg-dark: #000000;
+    --card-bg: rgba(0, 20, 10, 0.85);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Share Tech Mono', monospace;
+    background: var(--bg-dark);
+    color: var(--neon-green);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Digital Rain Canvas */
+#matrix-rain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.25;
+}
+
+.screen {
+    position: relative;
+    z-index: 1;
+    display: none;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.container {
+    max-width: 800px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Títulos com Glow */
+.glow {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3.2rem);
+    text-shadow: 
+        0 0 5px var(--neon-green),
+        0 0 10px var(--neon-green),
+        0 0 20px var(--neon-green),
+        0 0 40px var(--neon-green);
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.glow-small {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    text-shadow: 0 0 8px var(--neon-green);
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Botões Neon */
+.neon-btn {
+    font-family: 'Orbitron', sans-serif;
+    background: transparent;
+    border: 2px solid var(--neon-green);
+    color: var(--neon-green);
+    padding: 15px 40px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+}
+
+.neon-btn:hover {
+    background: rgba(0, 255, 102, 0.15);
+    box-shadow: 
+        0 0 20px var(--neon-green),
+        0 0 40px var(--neon-green),
+        inset 0 0 20px rgba(0, 255, 102, 0.2);
+    transform: scale(1.05);
+}
+
+.neon-btn:active {
+    transform: scale(0.98);
+}
+
+/* Card de Pergunta */
+.question-card {
+    background: var(--card-bg);
+    border: 1px solid var(--neon-green);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 
+        0 0 20px rgba(0, 255, 102, 0.2),
+        inset 0 0 30px rgba(0, 255, 102, 0.05);
+    animation: fadeInUp 0.6s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#question-text {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    line-height: 1.5;
+    min-height: 80px;
+}
+
+/* Opções */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.option-btn {
+    background: rgba(0, 40, 20, 0.6);
+    border: 1px solid var(--neon-green);
+    color: var(--neon-green);
+    padding: 15px 20px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.option-btn:hover {
+    background: rgba(0, 255, 102, 0.15);
+    box-shadow: 0 0 15px rgba(0, 255, 102, 0.4);
+    transform: translateX(8px);
+}
+
+.option-btn:active {
+    transform: scale(0.98);
+}
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(0, 255, 102, 0.15);
+    border-radius: 3px;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--neon-green), var(--neon-cyan));
+    width: 0%;
+    transition: width 0.5s ease;
+    box-shadow: 0 0 10px var(--neon-green);
+}
+
+/* Tela de Resultado */
+.result-box {
+    background: var(--card-bg);
+    border: 1px solid currentColor;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 25px 0;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    text-align: left;
+}
+
+.scores {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.score-item {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    border: 1px solid;
+}
+
+.score-item.utopia {
+    border-color: var(--neon-cyan);
+    color: var(--neon-cyan);
+    text-shadow: 0 0 8px var(--neon-cyan);
+}
+
+.score-item.balanced {
+    border-color: var(--neon-gold);
+    color: var(--neon-gold);
+    text-shadow: 0 0 8px var(--neon-gold);
+}
+
+.score-item.resistant {
+    border-color: var(--neon-red);
+    color: var(--neon-red);
+    text-shadow: 0 0 8px var(--neon-red);
+}
+
+/* Temas de Final */
+.result-utopia {
+    --accent: var(--neon-cyan);
+}
+.result-utopia .glow,
+.result-utopia .neon-btn,
+.result-utopia .result-box {
+    color: var(--neon-cyan);
+    border-color: var(--neon-cyan);
+    text-shadow: 
+        0 0 5px var(--neon-cyan),
+        0 0 15px var(--neon-cyan),
+        0 0 30px var(--neon-cyan);
+}
+
+.result-balanced {
+    --accent: var(--neon-gold);
+}
+.result-balanced .glow,
+.result-balanced .neon-btn,
+.result-balanced .result-box {
+    color: var(--neon-gold);
+    border-color: var(--neon-gold);
+    text-shadow: 
+        0 0 5px var(--neon-gold),
+        0 0 15px var(--neon-gold),
+        0 0 30px var(--neon-gold);
+}
+
+.result-resistant {
+    --accent: var(--neon-red);
+}
+.result-resistant .glow,
+.result-resistant .neon-btn,
+.result-resistant .result-box {
+    color: var(--neon-red);
+    border-color: var(--neon-red);
+    text-shadow: 
+        0 0 5px var(--neon-red),
+        0 0 15px var(--neon-red),
+        0 0 30px var(--neon-red);
+}
+
+/* Typewriter helper */
+.typewriter {
+    overflow: hidden;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .question-card {
+        padding: 20px;
+    }
+    #question-text {
+        font-size: 1.1rem;
+    }
+    .option-btn {
+        font-size: 0.95rem;
+        padding: 12px 15px;
+    }
+    .scores {
+        flex-direction: column;
+        align-items: center;
+    }
+}
